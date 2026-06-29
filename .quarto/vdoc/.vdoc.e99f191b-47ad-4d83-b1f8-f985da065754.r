@@ -1,28 +1,28 @@
----
-title: "Probability"
-author: "Oluchi Nnadi"
-format: html
-execute:
-  echo: false
-
----
-
-```{r}
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #| message: false
 library(tidyverse)
-```
-
-```{r}
+#
+#
+#
 #| cache: true
 throw_dice <- function(n, weights = rep(1/6, 6)) {
   dice1 <- sample(1:6, size = n, replace = TRUE, prob = weights)
   dice2 <- sample(1:6, size = n, replace = TRUE, prob = weights)
   dice1 + dice2
 }
-```
-
-The following histogram shows the distribution of sums for different sample sizes with an unfair die. As the sample size increases, the distribution of sums better reflects the biased distribution of the die.
-```{r}
+#
+#
+#
+#
 set.seed(10)
 
 weights <- c(0.25, rep(0.75 / 5, 5))
@@ -46,10 +46,10 @@ simulations |>
     x = "Sum",
     y = "Count"
   )
-```
-
-The following plot shows the theoretical probability distributions for a fair die and a loaded die.
-```{r}
+#
+#
+#
+#
 fair_probs <- tibble(
   face = 1:6,
   probability = rep(1 / 6, 6),
@@ -74,19 +74,19 @@ probabilities |>
     x = "Face",
     y = "Probability"
   )
-```
-
-```{r}
+#
+#
+#
 #| cache: true
 log_lr <- function(rolls) {
   p_loaded <- c(rep(0.14, 5), 0.30)
   p_fair <- rep(1 / 6, 6)
   log(p_loaded[rolls] / p_fair[rolls])
 }
-```
-
-The following plot shows the distribution of the first roll to cross a 0.95 posterior. There is variation because the loaded die is not guaranteed to be detected on the first roll, and it may take several rolls to accumulate enough evidence to cross the threshold.
-```{r}
+#
+#
+#
+#
 set.seed(10)
 
 simulate_stopping_time <- function() {
@@ -107,5 +107,8 @@ tibble(stopping_time = stopping_times) |>
     x = "Roll Number",
     y = "Count"
   )
-```
-
+#
+#
+#
+#
+#
